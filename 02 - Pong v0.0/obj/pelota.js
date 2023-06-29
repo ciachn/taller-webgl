@@ -2,14 +2,11 @@
 import { globals } from '../graphics.js';
 import { KeyState } from '../keyb.js';
 
-const W = 24;
-const H = 24;
-
 export default class Pelota
 {
 	x;
-	x2;
 	y;
+	x2;
 	y2;
 	color;
 
@@ -17,13 +14,15 @@ export default class Pelota
 	vely;
 
 	offScreen;
+	size;
 
 	constructor (color)
 	{
-		this.x = 0.5*globals.width - 0.5*W;
-		this.y = 0.5*globals.height - 0.5*H;
-		this.x2 = this.x + W;
-		this.y2 = this.y + H;
+		this.size = 24;
+		this.x = 0.5*globals.width - 0.5*this.size;
+		this.y = 0.5*globals.height - 0.5*this.size;
+		this.x2 = this.x + this.size;
+		this.y2 = this.y + this.size;
 		this.color = color;
 
 		this.velx = 5;
@@ -40,22 +39,22 @@ export default class Pelota
 	draw (g)
 	{
 		g.fillStyle = this.color;
-		g.fillRect(this.x, this.y, W, H);
+		g.fillRect(this.x, this.y, this.size, this.size);
 	}
 
-	update ()
+	update()
 	{
 		this.x += this.velx;
 		this.y += this.vely;
 
-		if (this.x+W < 0 || this.y+H < 0 || this.x > globals.width || this.y > globals.height)
+		if (this.x+this.size < 0 || this.y+this.size < 0 || this.x > globals.width || this.y > globals.height)
 		{
-			this.x = 0.5*globals.width - 0.5*W;
-			this.y = 0.5*globals.height - 0.5*H;
+			this.x = 0.5*globals.width - 0.5*this.size;
+			this.y = 0.5*globals.height - 0.5*this.size;
 			this.offScreen = true;
 		}
 
-		this.x2 = this.x + W;
-		this.y2 = this.y + H;
+		this.x2 = this.x + this.size;
+		this.y2 = this.y + this.size;
 	}
 }

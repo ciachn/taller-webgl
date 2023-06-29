@@ -39,15 +39,12 @@ export default class Paleta
 	update ()
 	{
 		if (KeyState[this.keyUp] == 1)
-		{
 			this.y -= 5;
-			this.y2 -= 5;
-		}
 
 		if (KeyState[this.keyDown] == 1)
-		{
 			this.y += 5;
-			this.y2 += 5;
-		}
+
+		this.x2 = this.x + W;
+		this.y2 = this.y + H;
 	}
 }
