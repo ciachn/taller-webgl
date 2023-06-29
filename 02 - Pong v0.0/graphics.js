@@ -1,6 +1,6 @@
 
 /**
- * Contexto 2D global.
+ * Variables globales.
  */
 export const globals = 
 {
@@ -23,8 +23,9 @@ export function rad (angle) {
 
 
 /**
- * Initializa el estado global.
+ * Inicializa el sistema de gráficos en el canvas dado su ID.
  * @param {string} idCanvas - ID del canvas a utilizar.
+ * @param {string} backgroundColor - Color de fondo (opcional).
  */
 export function initCanvas (idCanvas, backgroundColor='#fff')
 {
@@ -38,17 +39,17 @@ export function initCanvas (idCanvas, backgroundColor='#fff')
 
 
 /**
- * Limpiar la pantalla.
+ * Limpia la pantalla.
  */
 export function clearScreen()
 {
-	// Truco para limpiar el canvas.
+	// Truco estandar para limpiar un canvas. Resetear su propiedad de "ancho" o "alto".
 	globals.canvas.width = globals.canvas.width;
 }
 
 
 /**
- * Iniciar el proceso de renderizado.
+ * Inicia el proceso de renderizado. La función "drawFunction" se ejecutará una vez cada frame.
  * @param {function} drawFunction
  */
 export function startRender (drawFunction)
