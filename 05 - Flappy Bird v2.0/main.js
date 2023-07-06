@@ -85,7 +85,7 @@ function draw (g)
 
 		tubo.x += -1.5;
 
-		if (tubo.x + imgPipe0.width < 0)
+		if (tubo.x + imgPipe0.width < 0 && tubo.type == PIPE_DOWN)
 		{
 			let space = rand(140, 500);
 			let sizDown = rand(200, 400);
