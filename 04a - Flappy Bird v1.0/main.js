@@ -56,7 +56,7 @@ async function main()
 	// Inicializar el mapa del fondo.
 	bgMap = [];
 
-	let cols = Math.ceil(globals.width / imgBg0.width);
+	let cols = 1 + Math.ceil(globals.width / imgBg0.width);
 	let lines = Math.ceil(globals.height / imgBg0.height);
 	scrollX = 0;
 
